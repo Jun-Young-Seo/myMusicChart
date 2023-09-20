@@ -1,0 +1,77 @@
+<!-- melon.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <section>
+        <div class="featured">
+            <img class="featured-thumb" src="{{ url_for('static', filename='css/images/img.png') }}" alt="Newjeans">
+            <div class="featured-content">
+            <div class="featured-tag">RPA 5조</div>
+            <h2 class="featured-title">
+              한 눈에 보는<br>
+              음악차트
+            </h2>
+            <p class="featured-description">
+                내가 좋아하는 음악의 순위와 반응을 한 눈에 보고 싶었던 적이 있으신가요? <br>
+                멜론과 지니뮤직의 순위를 정리하고, 반응도 볼 수 있게 정리했습니다!
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="featured">
+            <div class="chart-table melon-chart">
+              <div class="featured-tag">
+                <img class="chart-image" src="{{ url_for('static', filename='css/images/melon.jpg') }}" alt="Melon">
+              </div>
+          
+        <table class="melon-chart" border="1">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in melon_chart %}
+                <tr>
+                    <td>{{ item.rank }}</td>
+                    <td><a href="/search_melon_comment?selected_title={{ item.title }}">{{ item.title }}</a></td>
+                    <td>{{ item.artist }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <div class="chart-table genie-chart">
+            <div class="featured-tag">
+              <img class="chart-image" src="{{ url_for('static', filename='css/images/genie.png') }}" alt="Genie">
+            </div>
+        <table class="genie-chart" border="1">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in genie_chart %}
+                <tr>
+                    <td>{{ item.rank }}</td>
+                    <td><a href="/search_genie_comment?selected_title={{ item.title }}">{{ item.title }}</a></td>
+                    <td>{{ item.artist }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </section>
+</body>
+</html>

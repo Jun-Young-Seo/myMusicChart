@@ -1,0 +1,18 @@
+<!-- instiz.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <h2>Title: {{ selected_title }}</h2>
+    <h3>Comments:</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
